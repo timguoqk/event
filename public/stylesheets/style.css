@@ -10,13 +10,13 @@ input::-webkit-input-placeholder {
 
 body {
 	background-color: #2895F1;
-	font-family: 'Quattrocento Sans', sans-serif;
+	/*font-family: 'Quattrocento Sans', sans-serif !important;*/
 
 }
 
 h1 {
 	color: white;
-	font-size: 72pt;
+	font-size: 36pt;
 
 }
 
@@ -50,11 +50,14 @@ input[type='submit'] {
 #image {
 	float: left;
 	/*border: 10px solid white;*/
+	width: 840px;
+	display:flex;
+	align-items:center;
 }
 
 #index_image {
-	height: 470px;
-	width: 840px;
+	height: 100%;
+	width: 100%;
 }
 
 #login {
