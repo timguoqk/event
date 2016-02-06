@@ -1,0 +1,11 @@
+page designs -> page html+css -> page optimizations
+setup page design -> setup page implementation -> setup page working with ML
+MLhelper.js -> working ML pipeline -> working tensorflow -> tensorflow optimization
+gAPIhelper.js -> google login -> gmail get -> calendar get
+splitting event -> email feature extraction -> NLP
+writeup + screenshots
+
+Chris: page designs, setup page design, html+css, page optimizations
+Bill: splitting event -> NLP -> working tensorflow -> working ML pipeline -> tensorflow optimization
+Linda: MLhelper.js -> landing page html -> setup page implementation -> setup page working with ML
+Tim: gAPIhelper.js -> google login -> gmail get -> page html+css -> email feature extraction -> calendar get -> NLP
