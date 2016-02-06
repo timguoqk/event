@@ -27,27 +27,9 @@ router.get('/callback', function(req, res, next) {
   }
   // TODO: inspect to find ways to get code
   var code;
-  req.session.oauth2Client.getToken(function(err, tokens) {
+  req.session.oauth2Client.getToken(code, function(err, tokens) {
     req.session.oauth2Client.setCredentials(tokens);
-    getAccessToken(oauth2Client, function() {
-      // retrieve user profile
-      google.users.messages.list({ userId: 'me', auth: oauth2Client, q: config.google.gmailQ }, function(err, list_res) {
-        if (err) {
-          console.log('An error occured', err);
-          return;
-        }
-        var emailID = list_res.messages[0].id;
-        console.log(emailID);
-        res.redirect('../setup');
-        // google.users.messages.get({ userId: 'me', auth: oauth2Client, id: emailID, format: 'raw'}, function(err, get_res) {
-        //   var mime = get_res.raw;
-        //   var html = mimelib.decodeBase64(mime);
-        //   var text = htmlToText.fromString(html, {wordwrap: false, ignoreHref: true, ignoreImage: true});
-        //   MLhelper.predict();
-        //   res.redirect('finished');
-        // });
-      });
-    });
+    res.redirect('../setup');
   });
 });
 

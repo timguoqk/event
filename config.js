@@ -5,5 +5,9 @@ module.exports = {
     redirectURL: 'http://localhost:3000/auth/callback',
     scope: ['https://mail.google.com/', 'https://www.googleapis.com/auth/gmail.readonly', 'https://www.googleapis.com/auth/calendar'],
     gmailQ: 'from: Morning_Mail@brown.edu'
+  },
+  aylien: {
+  	application_id: 'b447c021',
+  	application_key: '1615c27afdbd453479e0406476036590'
   }
 };
