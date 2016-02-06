@@ -4,6 +4,7 @@ var router = express.Router();
 var google = require('googleapis');
 var OAuth2 = google.auth.OAuth2;
 var config = require('../config');
+var plus = google.plus('v1');
 
 var db = require('../db');
 
@@ -26,13 +27,15 @@ router.get('/callback', function(req, res, next) {
   }
   var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret, config.google.redirectURL);
   oauth2Client.getToken(req.query.code, function(err, tokens) {
+    console.log(tokens);
     req.session.tokens = tokens;
-    google.plus.people.get({ userId: 'me', auth: oauth2Client }, function(err, profile) {
+    plus.people.get({ userId: 'me', auth: oauth2Client }, function(err, profile) {
       if (err) {
         res.render('error', {msg: err});
         return;
       }
-      // emails[0];
+      req.session.name = profile.displayName;
+      req.session.email = profile.emails[0];
       res.redirect('../setup');
     });
   });
