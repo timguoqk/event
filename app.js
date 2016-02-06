@@ -31,10 +31,16 @@ app.use(sassMiddleware({
   outputStyle: 'compressed'
 }));
 
+app.use(session({
+  secret: 'there is no secret',
+  resave: false,
+  saveUninitialized: true
+}));
+
 app.use('/', require('./routes/static'));
 // app.use('/show', require('./routes/show'));
-// app.use('/setup', require('./routes/setup'));
-// app.use('/auth', require('./routes/auth'));
+app.use('/setup', require('./routes/setup'));
+app.use('/auth', require('./routes/auth'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -66,11 +72,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-app.use(session({
-  secret: 'there is no secret',
-  resave: false,
-  saveUninitialized: true
-}));
 
 module.exports = app;

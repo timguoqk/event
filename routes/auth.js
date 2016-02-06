@@ -3,17 +3,16 @@ var router = express.Router();
 
 var google = require('googleapis');
 var OAuth2 = google.auth.OAuth2;
-var config = require('./config');
+var config = require('../config');
 
-var htmlToText = require('html-to-text');
-var mimelib = require('mimelib');
+var db = require('../db');
 
 var MLhelper = require('../MLhelper');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  req.session.oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret, config.google.redirectURL);
-  var url = req.session.oauth2Client.generateAuthUrl({
+  var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret, config.google.redirectURL);
+  var url = oauth2Client.generateAuthUrl({
     access_type: 'offline',
     scope: config.google.scope
   });
@@ -21,15 +20,21 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/callback', function(req, res, next) {
-  if (!req.session.oauth2Client) {
+  if (!req.query.code) {
     res.render('error', {msg: 'No oauth2Client!'});
     return;
   }
-  // TODO: inspect to find ways to get code
-  var code;
-  req.session.oauth2Client.getToken(code, function(err, tokens) {
-    req.session.oauth2Client.setCredentials(tokens);
-    res.redirect('../setup');
+  var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret, config.google.redirectURL);
+  oauth2Client.getToken(req.query.code, function(err, tokens) {
+    req.session.tokens = tokens;
+    google.plus.people.get({ userId: 'me', auth: oauth2Client }, function(err, profile) {
+      if (err) {
+        res.render('error', {msg: err});
+        return;
+      }
+      // emails[0];
+      res.redirect('../setup');
+    });
   });
 });
 

@@ -10,7 +10,11 @@ router.get('/', function(req, res, next) {
     res.redirect('../auth');
   }
   // retrieve user profile
-  google.users.messages.list({ userId: 'me', auth: oauth2Client, q: config.google.gmailQ }, function(err, list_res) {
+  google.users.messages.list({
+    userId: 'me',
+    auth: oauth2Client,
+    q: config.google.gmailQ
+  }, function(err, list_res) {
     if (err) {
       console.log('An error occured', err);
       return;
