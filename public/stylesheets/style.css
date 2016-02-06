@@ -1,8 +1,63 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+	margin: 0;
+	padding: 0;
 }
 
-a {
-  color: #00B7FF;
+input::-webkit-input-placeholder {
+	color: white !important;
+	
+}
+
+body {
+	background-color: #2895F1;
+	font-family: 'Quattrocento Sans', sans-serif;
+
+}
+
+h1 {
+	color: white;
+	font-size: 72pt;
+
+}
+
+input[type='text'] {
+	height: 50px;
+	width: 260px;
+	font-size: 18pt;
+	border: 1px solid white;
+	border-radius: 10px;
+	background-color: #2895F1;
+	color: white;
+	margin-bottom: 25px;
+	display: block;
+	padding-left: 10px;
+}
+
+input[type='submit'] {
+	background-color: white;
+	height: 50px;
+	width: 260px;
+	border: 1px solid white;
+	border-radius: 10px;
+	color: #2895F1;
+	font-size: 18pt;
+}
+
+#title {
+	margin-bottom: 90px;
+}
+
+#image {
+	float: left;
+	/*border: 10px solid white;*/
+}
+
+#index_image {
+	height: 470px;
+	width: 840px;
+}
+
+#login {
+	float: left;
+	/*border: 10px solid white;*/
 }
