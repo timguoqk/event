@@ -5,12 +5,14 @@ block content
 
   link(href='https://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css')
 
-  div#image
+  #image
     img(src='/images/index_image.png', id="index_image")
 
-  div#login
-    h1#title #{title}
-    form(name='login', method='post')
-      input(type='text' name='email' placeholder="Your Gmail account")
-      input(type='text' name='password' placeholder="Password")
-      input(type='submit' name='submit' value="Sign in")
+  h1#title #{title}
+  
+  .ui.button#sign-in Sign in with Your Gmail
+
+  .footer
+    p Hack@Brown Project by
+    p Tim Guo, Ze Li, Linda Chang & Chris Liu
+    p © 2016
