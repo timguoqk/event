@@ -27,7 +27,8 @@ h3 {
 	position: absolute;
 	top: 25px;
 	right:120px;
-	
+	display: inline-flex;
+	align-items: center;
 }
 
 .main-container {
@@ -156,7 +157,7 @@ h3 {
 	color: #32C8C8;
 }
 
-.ui.icon.input#date-selector, .ui.icon.input#gcalendar {
+.ui.icon.input#date-selector, .ui.icon.input#gcalendar, #google-icon {
 	margin-right: 20px;
 }
 
