@@ -173,6 +173,10 @@ p {
     margin-right: auto;
 }
 
+.box.selected .month-and-day>.month, .box.selected .month-and-day>.day, .box:hover .month-and-day>.month, .box:hover .month-and-day>.day {
+	color: #32C8C8;
+}
+
 .other-info {
 	margin-top: auto;
 	margin-bottom: auto;

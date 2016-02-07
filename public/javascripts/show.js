@@ -24,5 +24,11 @@ $(document).ready(function() {
     		});
 		$(this).toggleClass('selected');
 	});
+
+	$('.ui.dropdown').dropdown();
+
+	$('#date-selector i.circular.calendar.link.icon').on('click', function() {
+		window.location.href = $('#date-selector input').val();
+	});
 });
 

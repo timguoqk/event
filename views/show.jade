@@ -11,8 +11,26 @@ html
     script(src='/javascripts/show.js')
   body
     #header
-      img(src='/images/eventbox_text.png')
-
+      .logo
+        img(src='/images/eventbox_text.png')
+      .selector
+        img#google-icon(src='/images/GCal_logo.png')
+        .ui.icon.input#date-selector
+          input(type="text", placeholder="#{day}")
+          i.circular.calendar.link.icon
+        .ui.search.selection.dropdown
+          input(type='hidden', name='type')
+          i.dropdown.icon
+          input.search(autocomplete='off', tabindex='0')
+          .default.text Select mail type
+          .menu(tabindex='-1')
+            .item(data-value='mm')
+              | Morning Mail
+            .item(data-value='dm')
+              | Department Mail
+            .item(data-value='cr')
+              | Create +
+      
     .main-container
       .left
         each event, index in events
@@ -31,4 +49,5 @@ html
           h3.rc-title
           p.rc-content
           .rc-foot-wrapper
-            a.rc-link Add
+            i.calendar.icon
+            a.rc-link(href=events[2].url) Add
