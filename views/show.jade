@@ -1,18 +1,30 @@
-extends layout
-
-block content
-  .header
-    img(src='/images/eventbox_text.png')
-
-  .main-container
-    .left
-      each event, index in events
-        .box(data-id="#{index}")
-          .month=event.month
-          .day=event.day
-          .title=event.title
-          .location=event.location
-          .confidence=event.confidence
-          .content=event.content
-    .right
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css')
+    link(rel='stylesheet', href='/stylesheets/show.css')
     
+
+    script(src='https://code.jquery.com/jquery-2.2.0.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js')
+    script(src='/javascripts/show.js')
+  body
+    #header
+      img(src='/images/eventbox_text.png')
+
+    .main-container
+      .left
+        each event, index in events
+          .box(data-id="#{index}")
+            .month-and-day
+              .month=event.month
+              .day=event.day
+            .other-info
+              .title=event.title
+              .location-and-time=event.location+', '+event.time
+              .content=event.content
+            .confidence(style="width: #{event.confidence}%")
+      .right
+        .right-content
+      

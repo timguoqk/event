@@ -1,0 +1,89 @@
+#header {
+	position: fixed;
+	width: 100%;
+	height: 100px;
+	background-color: #2895F1;
+	margin-bottom: 25px;
+	padding-top: 37.5px;
+}
+
+#header img {
+	height: 25px;
+	margin-left: 180px;
+}
+
+.main-container {
+	display: flex;
+	padding-top: 120px;
+	margin-left: 180px;
+	margin-right: 180px;
+}
+
+.left {
+	width: 50%;
+	margin-right: 50px;
+}
+
+.right {
+	width: 50%;
+	height: 600px;
+	background: url('/images/logo_big.png');
+	background-size: 100px;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: fixed;
+}
+
+.box {
+	display: flex;
+	flex-wrap: wrap;
+	border: 1.5px solid #2895F1;
+	padding: 15px;
+	padding-bottom: 0;
+	border-radius: 14px;
+	margin-bottom: 25px;
+}
+
+.month-and-day {
+	flex-direction: column;
+    flex-basis: 20%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.month-and-day>.month, .month-and-day>.day {
+	font-weight: 900;
+	color: #2895F1;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.other-info {
+	flex-basis: 80%;
+}
+
+.other-info>.content {
+	display: none;
+}
+
+.other-info>.title {
+	font-weight: 900;
+}
+
+.confidence {
+	margin-top: 10px;
+	height: 5px;
+	color: #2895F1;
+	background: #2895F1;
+}
+
+.right>.right-content {
+	margin-right: 130px;
+	height: 100%;
+	padding: 40px;
+	border: 1.5px solid #2895F1;
+	border-radius: 14px;
+	display: none;
+}

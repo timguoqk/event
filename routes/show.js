@@ -9,14 +9,19 @@ var _ = require('underscore');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('show', {events: [{
-    month: 'Jan',
-    day: '6',
-    title: 'what the fu',
-    location: 'Providence',
-    confidence: 0.2,
-    content: 'What the f am i doing rn'
-  }]});
+  var events = [];
+  for (var i = 0; i < 20; i ++) {
+    events.push({
+      month: 'Jan',
+      day: '6',
+      time: '3:00pm',
+      title: 'what the fu',
+      location: 'Providence',
+      confidence: 0.2,
+      content: 'What the f am i doing rn'
+    });
+  }
+  res.render('show', {events: events});
 });
 
 // router.get('/', function(req, res, next) {
