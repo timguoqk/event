@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   // }
   res.render('setup', {
   	session: req.session,
-  	events: _.shuffle(MLhelper.events, 15)
+  	events: _.sample(MLhelper.events, 20)
   });
 });
 

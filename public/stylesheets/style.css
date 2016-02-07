@@ -125,9 +125,13 @@ p {
 	margin-bottom: 25px;
 }
 
+.box.selected {
+	background: white;
+}
+
 .month-and-day {
 	flex-direction: column;
-    flex-basis: 20%;
+    flex-basis: 15%;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -142,7 +146,7 @@ p {
 }
 
 .other-info {
-	flex-basis: 80%;
+	flex-basis: 55%;
 }
 
 .other-info>.content {
@@ -161,4 +165,18 @@ p {
 	border-radius: 14px;
 	display: none;
 	margin-top: 100px;
+}
+
+.yes, .no {
+	text-align: center;
+	flex-basis: 15%;
+	color: gray;
+}
+
+.yes.active {
+	color: red;
+}
+
+.no.active {
+	color: green;
 }

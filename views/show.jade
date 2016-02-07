@@ -15,18 +15,19 @@ html
     .main-container
       .left
         each event, index in events
-          .box(data-id="#{index}")
+          .box(data-id="#{index}", class="#{isFree[index]}")
             .month-and-day
               .month=event.month
               .day=event.day
             .other-info
               .title=event.title
-              .location-and-time=event.location+', '+event.time
+              .location-and-time=event.location+' '+event.time
               .content=event.content
               .url=event.url
-            .confidence(style="width: #{event.confidence}%")
+            //- .confidence(style="width: #{event.confidence}%") We're not doing confidence level anymore
       .right
         .right-content
           h3.rc-title
           p.rc-content
-          a.rc-link Add
+          .rc-foot-wrapper
+            a.rc-link Add

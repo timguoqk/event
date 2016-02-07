@@ -36,7 +36,6 @@ router.get('/callback', function(req, res, next) {
       }
       console.log(userinfo);
       req.session.name = userinfo.name;
-      // req.session.email = profile.emails[0];
       req.session.photo = userinfo.picture;
       res.redirect('../setup');
     });

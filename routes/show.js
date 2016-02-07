@@ -13,6 +13,7 @@ var _ = require('underscore');
 router.get('/', function(req, res, next) {
   // var events = [];
   var events = _.shuffle(MLhelper.events, 15);
+  var isFree = [];
   for (var i = 0; i < events.length; i ++) {
     // events.push({
     //   month: 'Jan',
@@ -24,8 +25,9 @@ router.get('/', function(req, res, next) {
     //   content: 'What the f am i doing rn',
     // });
     events[i].url = toCalendarURL(events[i]);
+    isFree.push((_.random(0, 10) == 0) ? 'notFree' : 'isFree');
   }
-  res.render('show', {events: events});
+  res.render('show', {events: events, isFree: isFree});
 });
 
 // router.get('/', function(req, res, next) {
@@ -61,19 +63,20 @@ router.get('/', function(req, res, next) {
 //       var events = emailParser.split(field);
 //       var isFree = [];
 //       for (var i = 0; i < events.length; i ++)
-//         isFree.push(true);
+//         isFree.push('isFree');
 
 //       emailParser.extend(events, function(extendedEvents) {
-//         MLhelper.create(req.session.email, extendedEvents, function(data) {
-//           // TODO: Assumed that calendar has finished
-//           req.render('show', {data: data, isFree: isFree});
-//         });
+//         var events = MLhelper.dataToEvents(extendedEvents);
+//         for (var i = 0; i < events.length; i ++) {
+//           if (_.random(0, 10) == 0)
+//             isFree[i] = 'notFree';
+//           // calendar.freebusy.query({});
+//         }
+//         // MLhelper.create(req.session.email, extendedEvents, function(data) {
+//         //   // TODO: Assumed that calendar has finished
+//           req.render('show', {events: events, isFree: isFree});
+//         // });
 //       });
-
-//       for (var i = 0; i < events.length; i ++) {
-//         // calendar.freebusy.query({});
-//       }
-      
 //     });
 //   });
 // });
@@ -81,6 +84,16 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 
 function toCalendarURL(event) {
+// <a href="http://www.google.com/calendar/event?
+// action=TEMPLATE
+// &text=[event-title]
+// &dates=[start-custom format='Ymd\\THi00\\Z']/[end-custom format='Ymd\\THi00\\Z']
+// &details=[description]
+// &location=[location]
+// &trp=false
+// &sprop=
+// &sprop=name:"
+// target="_blank" rel="nofollow">Add to my calendar</a>
   var url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=' 
   + event.title
   + '&dates=' + event.dates

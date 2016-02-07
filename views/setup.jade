@@ -1,10 +1,8 @@
 extends layout
 
 block content
-    link(href='https://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css')
-
     #image
-      img(src='/images/setup_image.png', id="setup_image")
+      //- img(src='/images/setup_image.png', id="setup_image")
 
     #greeting
       h2 Hi, #{session.name}
@@ -28,5 +26,7 @@ block content
           .other-info
             .title=event.title
             .location-and-time=event.location+' '+event.time
+          //- .yes Like!
+          //- .no Uhh...
     .ui.button#sign-in(style="margin-bottom: 50px")
       a(href='/show') Continue
