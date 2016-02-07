@@ -94,6 +94,10 @@ router.get('/:day', function(req, res, next) {
             isFree[i] = 'notFree';
           // calendar.freebusy.query({});
         }
+
+        for (var i = 0; i < events.length; i ++) {
+          events[i].url = toCalendarURL(events[i]);
+        }
         // MLhelper.create(req.session.email, extendedEvents, function(data) {
         //   // TODO: Assumed that calendar has finished
         req.session.day = day;
