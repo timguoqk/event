@@ -5,6 +5,7 @@ body {
 }
 
 h1 {
+	font-family: 'Quattrocento Sans', sans-serif !important;
 	letter-spacing: 4px;
 	color: white;
 	display:flex;justify-content:center;align-items:center;font-size:36px;
@@ -12,29 +13,6 @@ h1 {
 	margin-bottom: 50px;
 }
 
-input[type='text'] {
-	height: 50px;
-	width: 260px;
-	font-size: 18pt;
-	border: 1px solid white;
-	border-radius: 10px;
-	background-color: #2895F1;
-	color: white;
-	margin-bottom: 25px;
-	display: block;
-	padding-left: 10px;
-}
-
-input[type='submit'] {
-	font-weight: 700;
-	background-color: white;
-	height: 50px;
-	width: 260px;
-	border: 1px solid white;
-	border-radius: 10px;
-	color: #2895F1;
-	font-size: 18pt;
-}
 
 #image {
 	margin-left: auto;
@@ -48,9 +26,18 @@ input[type='submit'] {
 }
 
 #sign-in {
+	font-family: 'Quattrocento Sans', sans-serif !important;
+	font-weight: 400;
 	display:flex;justify-content:center;align-items:center;width:260px;font-size:18px;
 	margin-left: auto;
 	margin-right: auto;
+	color: white;
+	background: #2895F1;
+	border: 1px solid white;
+	border-radius: 8px;
+}
+
+#sign-in:hover {
 	color: #2895F1;
 	background: white;
 }
