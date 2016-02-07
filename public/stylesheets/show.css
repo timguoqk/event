@@ -23,6 +23,13 @@ h3 {
 	margin-left: 180px;
 }
 
+.selector {
+	position: absolute;
+	top: 25px;
+	right:120px;
+	
+}
+
 .main-container {
 	display: flex;
 	padding-top: 120px;
@@ -36,6 +43,7 @@ h3 {
 }
 
 .right {
+	line-height: 2em;
 	width: 50%;
 	height: 600px;
 	background: url('/images/logo_big.png');
@@ -68,8 +76,16 @@ h3 {
 }
 
 .box.selected {
-	color: #32C8C8;
-	background: white;
+	color: white;
+	background: #32C8C8;
+}
+
+.box.selected .month-and-day>.month {
+	color: white;
+}
+
+.box.selected .month-and-day>.day {
+	color: white;
 }
 
 .other-info{

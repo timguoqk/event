@@ -24,5 +24,7 @@ $(document).ready(function() {
     		});
 		$(this).toggleClass('selected');
 	});
+
+	$('.ui.dropdown').dropdown();
 });
 
