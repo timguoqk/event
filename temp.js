@@ -1,12 +1,4 @@
-var google = require('googleapis');
-var OAuth2 = google.auth.OAuth2;
-var emailParser = require('./emailParser');
-var config = require('./config');
-var gmail = google.gmail('v1');
-var fs = require('fs');
-var jsonfile = require('jsonfile');
-var util = require('util');
-var Knwl = require("knwl.js");
+var MLhelper = require('./MLhelper');
 
 var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret, config.google.redirectURL);
 var token = {
