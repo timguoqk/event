@@ -76,11 +76,16 @@
 	display: none;
 }
 
+.other-info>.url {
+	display: none;
+}
+
 .other-info>.title {
 	font-weight: 900;
 }
 
 .confidence {
+	width: 1%;
 	margin-top: 10px;
 	height: 5px;
 	color: #2895F1;

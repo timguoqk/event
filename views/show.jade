@@ -23,6 +23,10 @@ html
               .title=event.title
               .location-and-time=event.location+', '+event.time
               .content=event.content
+              .url=event.url
             .confidence(style="width: #{event.confidence}%")
       .right
         .right-content
+          h3.rc-title
+          p.rc-content
+          a.rc-link Add

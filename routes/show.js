@@ -5,22 +5,25 @@ var google = require('googleapis');
 var OAuth2 = google.auth.OAuth2;
 var calendar = google.calendar('v3');
 
+var MLhelper = require('../MLhelper');
+
 var _ = require('underscore');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  var events = [];
-  for (var i = 0; i < 20; i ++) {
-    events.push({
-      month: 'Jan',
-      day: '6',
-      time: '3:00pm',
-      title: 'what the fu',
-      location: 'Providence',
-      confidence: 0.2,
-      content: 'What the f am i doing rn',
-    });
-    events[events.length - 1].url = toCalendarURL(events[events.length - 1]);
+  // var events = [];
+  var events = _.shuffle(MLhelper.events, 15);
+  for (var i = 0; i < events.length; i ++) {
+    // events.push({
+    //   month: 'Jan',
+    //   day: '6',
+    //   time: '3:00pm',
+    //   title: 'what the fu',
+    //   location: 'Providence',
+    //   confidence: 0.2,
+    //   content: 'What the f am i doing rn',
+    // });
+    events[i].url = toCalendarURL(events[i]);
   }
   res.render('show', {events: events});
 });
@@ -79,9 +82,9 @@ module.exports = router;
 
 function toCalendarURL(event) {
   var url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=' 
-  + event.name
+  + event.title
   + '&dates=' + event.dates
-  + '&details=' + event.details
+  + '&details=' + event.content
   + '&location=' + event.location;
 
   return url;
