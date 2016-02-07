@@ -44,6 +44,14 @@
 	margin-bottom: 25px;
 }
 
+.box:hover {
+	background: purple;
+}
+
+.box:active {
+	background: green;
+}
+
 .month-and-day {
 	flex-direction: column;
     flex-basis: 20%;
@@ -80,11 +88,13 @@
 }
 
 .right>.right-content {
+	transition: opacity .2s ease-in-out,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
+	background: white;
 	margin-right: 130px;
 	height: 400px;
 	padding: 40px;
 	border: 2.5px solid #2895F1;
 	border-radius: 14px;
-	display: none;
+	opacity: 0;
 	margin-top: 100px;
 }

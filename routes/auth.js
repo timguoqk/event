@@ -27,16 +27,17 @@ router.get('/callback', function(req, res, next) {
   }
   var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret, config.google.redirectURL);
   oauth2Client.getToken(req.query.code, function(err, tokens) {
-    console.log(tokens);
     req.session.tokens = tokens;
-    plus.people.get({ userId: 'me', auth: oauth2Client }, function(err, profile) {
+    oauth2Client.setCredentials(tokens);
+    google.oauth2('v2').userinfo.get({ userId: 'me', auth: oauth2Client }, function(err, userinfo) {
       if (err) {
         res.render('custom_error', {msg: err});
         return;
       }
-      req.session.name = profile.displayName;
-      req.session.email = profile.emails[0];
-      req.session.photo = profile.image.url;
+      console.log(userinfo);
+      req.session.name = userinfo.name;
+      // req.session.email = profile.emails[0];
+      req.session.photo = userinfo.picture;
       res.redirect('../setup');
     });
   });

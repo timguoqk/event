@@ -3,7 +3,7 @@ module.exports = {
     clientID: '1038161259891-qvlcuf5d4l88dcf5qi0i2a7gl23upfkj.apps.googleusercontent.com',
     clientSecret: 'qn-oDhc44WYphIXZ85O2p5Om',
     redirectURL: 'http://localhost:3000/auth/callback',
-    scope: ['https://mail.google.com/', 'https://www.googleapis.com/auth/gmail.readonly', 'https://www.googleapis.com/auth/calendar'],
+    scope: ['https://mail.google.com/', 'https://www.googleapis.com/auth/gmail.readonly', 'https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/plus.login'],
     gmailQ: 'from: Morning_Mail@brown.edu'
   },
   aylien: {

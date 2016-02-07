@@ -4,20 +4,29 @@ block content
     link(href='https://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css')
 
     #image
-        img(src='/images/setup_image.png', id="setup_image")
+      img(src='/images/setup_image.png', id="setup_image")
 
     #greeting
-        h2 Hi, #{session.name}
-        h2 What are you interested in?
+      h2 Hi, #{session.name}
+      h2 What are you interested in?
 
     #event-type-box
-        .ui.button#event-type Film Screening
-        .ui.button#event-type Lectures & Seminars
-        .ui.button#event-type Computer Science
-        .ui.button#event-type Design
-        .ui.button#event-type More
+      .ui.button#event-type Film Screening
+      .ui.button#event-type Lectures & Seminars
+      .ui.button#event-type Computer Science
+      .ui.button#event-type Design
+      .ui.button#event-type More
 
     h2#more-text Or ... which of the following do you like?
 
     #event-list 
-        .event
+      each event, index in events
+        .box(data-id="#{index}")
+          .month-and-day
+            .month=event.month
+            .day=event.day
+          .other-info
+            .title=event.title
+            .location-and-time=event.location+' '+event.time
+    .ui.button#sign-in(style="margin-bottom: 50px")
+      a(href='/show') Continue

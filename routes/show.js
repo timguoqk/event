@@ -18,8 +18,9 @@ router.get('/', function(req, res, next) {
       title: 'what the fu',
       location: 'Providence',
       confidence: 0.2,
-      content: 'What the f am i doing rn'
+      content: 'What the f am i doing rn',
     });
+    events[events.length - 1].url = toCalendarURL(events[events.length - 1]);
   }
   res.render('show', {events: events});
 });
