@@ -38,7 +38,7 @@ app.use(session({
 }));
 
 app.use('/', require('./routes/static'));
-// app.use('/show', require('./routes/show'));
+app.use('/show', require('./routes/show'));
 app.use('/setup', require('./routes/setup'));
 app.use('/auth', require('./routes/auth'));
 

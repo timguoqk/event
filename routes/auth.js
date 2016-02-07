@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/callback', function(req, res, next) {
   if (!req.query.code) {
-    res.render('error', {msg: 'No oauth2Client!'});
+    res.render('custom_error', {msg: 'No oauth2Client!'});
     return;
   }
   var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret, config.google.redirectURL);
@@ -31,14 +31,20 @@ router.get('/callback', function(req, res, next) {
     req.session.tokens = tokens;
     plus.people.get({ userId: 'me', auth: oauth2Client }, function(err, profile) {
       if (err) {
-        res.render('error', {msg: err});
+        res.render('custom_error', {msg: err});
         return;
       }
       req.session.name = profile.displayName;
       req.session.email = profile.emails[0];
+      req.session.photo = profile.image.url;
       res.redirect('../setup');
     });
   });
+});
+
+router.get('/destroy', function(req, res, next) {
+  req.session.destroy();
+  req.redirect('../');
 });
 
 module.exports = router;
