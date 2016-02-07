@@ -155,3 +155,7 @@ h3 {
 .notFree {
 	color: #32C8C8;
 }
+
+.ui.icon.input#date-selector {
+	margin-right: 20px;
+}

@@ -14,6 +14,9 @@ html
       .logo
         img(src='/images/eventbox_text.png')
       .selector
+        .ui.icon.input#date-selector
+          input(type="text", placeholder="#{day}")
+          i.circular.calendar.link.icon
         .ui.search.selection.dropdown
           input(type='hidden', name='type')
           i.dropdown.icon

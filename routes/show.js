@@ -40,6 +40,11 @@ router.get('/', function(req, res, next) {
 router.get('/:day', function(req, res, next) {
   var day = req.params.day;
   day = day.replace(/-/g,'/');
+
+  // Cache
+  if (req.session.day == day)
+    res.render('show', {events: req.session.events, isFree: req.session.isFree});
+
   var nextDay = new Date(day);
   nextDay.setDate(nextDay.getDate() + 1);
   var q = 'after:' + day + ' before:' + dateFormat(nextDay, 'yyyy/mm/dd') + ' from: Morning_Mail@brown.edu';
@@ -62,7 +67,6 @@ router.get('/:day', function(req, res, next) {
       res.render('custom_error', {msg: 'We only support Brown morning mails right now. Cannot find any morning emails!\n' + err});
       return;
     }
-    console.log(list_res);
     if (!list_res.messages) {
       res.render('custom_error', {msg: 'Cannot find email on that date!\n' + err});
       return;
@@ -92,7 +96,10 @@ router.get('/:day', function(req, res, next) {
         }
         // MLhelper.create(req.session.email, extendedEvents, function(data) {
         //   // TODO: Assumed that calendar has finished
-          res.render('show', {events: events, isFree: isFree});
+        req.session.day = day;
+        req.session.events = events;
+        req.session.isFree = isFree;
+        res.render('show', {events: events, isFree: isFree, day: req.params.day});
         // });
       });
     });
