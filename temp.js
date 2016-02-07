@@ -8,8 +8,6 @@ var jsonfile = require('jsonfile');
 var util = require('util');
 var Knwl = require("knwl.js");
 
-// city_name=city_name.replace(/ /gi,'_');
-
 var oauth2Client = new OAuth2(config.google.clientID, config.google.clientSecret, config.google.redirectURL);
 var token = {
   access_token: 'ya29.gAK94MDD-MdOxgCGQ4s_Z4ZCN4BKJyZNPDzTjM457ULuNkpT0qpvTTN04s2Tuk98lNn_',
@@ -22,38 +20,6 @@ oauth2Client.setCredentials(token);
 // var ans = [];
 
 // var maxResults = 200, count = 0;
-
-// gmail.users.messages.list({
-//   userId: 'me',
-//   auth: oauth2Client,
-//   q: config.google.gmailQ,
-//   maxResults: maxResults
-// }, function(err, list_res) {
-//   if (err) {
-//     console.log('An error occured', err);
-//     return;
-//   }
-//   for (var i = 0; i < list_res.messages.length; i ++) {
-//     gmail.users.messages.get(
-//     {
-//       userId: 'me',
-//       auth: oauth2Client,
-//       id: list_res.messages[i].id
-//     }, function(err, get_res) {
-//       if (err) {
-//         return;
-//       }
-//       var field = get_res.payload.parts[1].body.data;
-//       var res = emailParser.split(field);
-//       // console.log(res);
-//       ans.push(res);
-//       count ++;
-//       if (count == maxResults)
-//         format();
-//       // res.redirect('finished');
-//     });
-//   }
-// });
 
 // function format() {
 //   var outputStr = '';

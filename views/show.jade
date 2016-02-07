@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .header
+    img(src='/images/eventbox_text.png')
+
+  .main-container
+    .left
+      each event, index in events
+        .box(data-id="#{index}")
+          .month=event.month
+          .day=event.day
+          .title=event.title
+          .location=event.location
+          .confidence=event.confidence
+          .content=event.content
+    .right
+    

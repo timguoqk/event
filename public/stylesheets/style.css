@@ -63,3 +63,33 @@ p {
 	margin: 0 !important;
 	color: white;
 }
+
+#header {
+	height: 100px;
+	color: #2895F1;
+	margin-bottom: 25px;
+}
+
+#header img {
+	margin-left: 180px;
+}
+
+.left {
+	margin-left: 180px;
+}
+
+.right {
+	background: url('images/logo_big.png');
+}
+
+.box {
+	border: 1.5px solid white;
+	border-radius: 14px;
+	margin-bottom: 25px;
+}
+
+.confidence {
+	height: 5px;
+	color: #2895F1;
+	background: #2895F1;
+}
