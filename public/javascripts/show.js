@@ -10,4 +10,19 @@ $(document).ready(function() {
 	// .mouseleave(function() {
 	// 	$('.right>.right-content').css('opacity', '0');
 	// })
+
+	$('.box').on('click', function(e) {
+		if (e.clientY > 3/4 * $(window).height())
+			$.smoothScroll({
+      			scrollTarget: $(this),
+      			offset: -400
+    		});
+		else if (e.clientY < 1/4 * $(window).height())
+			$.smoothScroll({
+      			scrollTarget: $(this),
+      			offset: -400
+    		});
+		$(this).toggleClass('selected');
+	});
 });
+
