@@ -44,7 +44,7 @@ router.get('/callback', function(req, res, next) {
 
 router.get('/destroy', function(req, res, next) {
   req.session.destroy();
-  req.redirect('../');
+  res.redirect('../');
 });
 
 module.exports = router;
