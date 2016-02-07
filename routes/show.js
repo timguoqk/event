@@ -43,7 +43,7 @@ router.get('/:day', function(req, res, next) {
 
   // Cache
   if (req.session.day == day)
-    res.render('show', {events: req.session.events, isFree: req.session.isFree});
+    res.render('show', {events: req.session.events, isFree: req.session.isFree, day: req.params.day});
 
   var nextDay = new Date(day);
   nextDay.setDate(nextDay.getDate() + 1);

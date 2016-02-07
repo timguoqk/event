@@ -156,6 +156,14 @@ h3 {
 	color: #32C8C8;
 }
 
-.ui.icon.input#date-selector {
+.ui.icon.input#date-selector, .ui.icon.input#gcalendar {
 	margin-right: 20px;
+}
+
+.rc-foot-wrapper {
+	margin-top: 40px;
+}
+
+.rc-foot-wrapper a {
+	color: #32C8C8;
 }
