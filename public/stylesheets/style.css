@@ -54,6 +54,9 @@ h2 {
 	top: -80px;
 	width: 750px;
 	margin: auto;
+	
+	display: block;
+	overflow: auto;
 }
 
 
@@ -74,6 +77,11 @@ h2 {
 #greeting {
 	position: relative;
 	top: -150px;
+}
+
+#more-text {
+	position: relative;
+	top: -50px;
 }
 
 .footer {

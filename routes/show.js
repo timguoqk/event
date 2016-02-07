@@ -31,3 +31,13 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+function toCalendarURL(event) {
+  var url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=' 
+  + event.name
+  + '&dates=' + event.dates
+  + '&details=' + event.details
+  + '&location=' + event.location;
+
+  return url;
+}
