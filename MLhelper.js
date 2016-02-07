@@ -5387,10 +5387,13 @@ module.exports = {
         else
           e.location = '';
 
-        if (data[i].times)
+        if (data[i].times) {
           e.time = data[i].times.hour.toString() + ':' + data[i].times.minute + (data[i].times.daynight == 'Unknown' ? '' : data[i].times.daynight);
-        else
+          e.hour = data[i].times.hour.toString(); 
+
+        } else {
           e.time = '';
+       }
 
         events.push(e);
       }

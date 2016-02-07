@@ -4,7 +4,7 @@ $(document).ready(function() {
 		var rc = $('.right>.right-content');
 		rc.children('h3.rc-title').text(box.find('.other-info .title').text());
 		rc.children('p.rc-content').text(box.find('.other-info .content').text());
-		rc.children('a.rc-link').attr('href', box.find('.other-info .url').text());
+		rc.find('a.rc-link').attr('href', box.find('.other-info .url').text());
 		rc.css('opacity', '1');
 	});
 	// .mouseleave(function() {
