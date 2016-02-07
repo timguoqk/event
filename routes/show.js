@@ -11,7 +11,7 @@ var _ = require('underscore');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  // var events = [];
+  var events = [];
   var events = _.shuffle(MLhelper.events, 15);
   var isFree = [];
   for (var i = 0; i < events.length; i ++) {
@@ -25,6 +25,7 @@ router.get('/', function(req, res, next) {
     //   content: 'What the f am i doing rn',
     // });
     events[i].url = toCalendarURL(events[i]);
+    console.log(events[i].url);
     isFree.push((_.random(0, 10) == 0) ? 'notFree' : 'isFree');
   }
   res.render('show', {events: events, isFree: isFree});

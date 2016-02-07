@@ -7,6 +7,7 @@ html
     
     script(src='https://code.jquery.com/jquery-2.2.0.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js')
+    script(src='/javascripts/jquery.smooth-scroll.js')
     script(src='/javascripts/show.js')
   body
     #header
@@ -24,10 +25,10 @@ html
               .location-and-time=event.location+' '+event.time
               .content=event.content
               .url=event.url
-            //- .confidence(style="width: #{event.confidence}%") We're not doing confidence level anymore
+              //- .confidence(style="width: #{event.confidence}%") We're not doing confidence level anymore
       .right
         .right-content
           h3.rc-title
           p.rc-content
           .rc-foot-wrapper
-            a.rc-link Add
+            a.rc-link(href=events[2].url) Add
